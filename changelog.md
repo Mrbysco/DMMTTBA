@@ -1,0 +1,1 @@
+* Change EntityType tag used to `dmmttba:steerable` which on forge contains `forge:boats` and on fabric `c:boats`
