@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[46,)"
+issueTrackerURL="https://github.com/Mrbysco/dmmttba/issues"
+license="MIT"
+
+[[mods]]
+modId="dmmttba"
+version="${file.jarVersion}"
+displayName="Don't Make Me Turn This Boat Around"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/dmmttba"
+authors="Mrbysco"
+description='''
+Never have to turn your boat again!
+'''
+credits="GenerikB"
+
+[[dependencies.dmmttba]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20,1.21)"
+ordering="NONE"
+side="BOTH"
