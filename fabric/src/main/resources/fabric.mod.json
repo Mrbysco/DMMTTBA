@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "dmmttba",
+  "version": "${version}",
+  "name": "Don't Make Me Turn This Boat Around",
+  "description": "Never have to turn your boat again!",
+  "authors": [
+    "Mrbysco"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/dmmttba",
+    "sources": "https://github.com/Mrbysco/dmmttba",
+    "issues": "https://github.com/Mrbysco/dmmttba/issues"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.mrbysco.dmmttba.DMMTTBAFabric"
+    ]
+  },
+  "mixins": [
+    "dmmttba.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14",
+    "fabric": "*",
+    "minecraft": "~1.20",
+    "java": ">=17"
+  }
+}
+  
