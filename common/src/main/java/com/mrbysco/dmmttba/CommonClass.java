@@ -12,7 +12,7 @@ public class CommonClass {
 	 * @param mountingEntity The entity that is mounting the other entity
 	 */
 	public static void rotateSteerable(Entity mountedEntity, Entity mountingEntity) {
-		if (mountedEntity.getType().is(Constants.STEERABLE) && !mountedEntity.hasControllingPassenger() && mountingEntity instanceof Player player) {
+		if (mountedEntity.getType().is(Constants.STEERABLE) && mountedEntity.getControllingPassenger() == null && mountingEntity instanceof Player player) {
 			mountedEntity.setYRot(player.getYRot());
 		}
 	}

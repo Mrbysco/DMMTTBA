@@ -8,9 +8,9 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DMMTTBADatagen {
@@ -20,7 +20,7 @@ public class DMMTTBADatagen {
 		ExistingFileHelper helper = event.getExistingFileHelper();
 
 		if (event.includeServer()) {
-			generator.addProvider(event.includeServer(), new BoatEntityTagProvider(generator, helper));
+			generator.addProvider(new BoatEntityTagProvider(generator, helper));
 		}
 	}
 
@@ -33,7 +33,7 @@ public class DMMTTBADatagen {
 
 		@Override
 		protected void addTags() {
-			this.tag(BOATS).add(EntityType.BOAT, EntityType.CHEST_BOAT);
+			this.tag(BOATS).add(EntityType.BOAT);
 			this.tag(Constants.STEERABLE).addTag(BOATS);
 		}
 	}

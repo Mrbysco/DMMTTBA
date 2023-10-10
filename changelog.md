@@ -1,1 +1,1 @@
-* Change EntityType tag used to `dmmttba:steerable` which on forge contains `forge:boats` and on fabric `c:boats`
+* Initial build for 1.18.2
