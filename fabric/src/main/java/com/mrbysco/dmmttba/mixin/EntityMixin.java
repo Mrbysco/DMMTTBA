@@ -19,6 +19,6 @@ public class EntityMixin {
 			cancellable = true
 	)
 	public void dmmttba$onStartRiding(Entity entity, boolean bl, CallbackInfoReturnable<Boolean> cir) {
-		CommonClass.rotateSteerable(entity, (Entity) (Object) this);
+		CommonClass.rotateSteerable(entity, ((Entity) (Object) this));
 	}
 }
