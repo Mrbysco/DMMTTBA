@@ -1,8 +1,8 @@
 {
     "pack": {
-        "description": {
-            "text": "Don't Make Me Turn This Boat Around resources"
-        },
-        "pack_format": 15
+        "description": "Don't Make Me Turn This Boat Around resources",
+        "pack_format": 9,
+        "forge:resource_pack_format": 9,
+        "forge:data_pack_format": 10
     }
 }
