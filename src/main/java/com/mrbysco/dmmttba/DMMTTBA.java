@@ -1,38 +1,31 @@
 package com.mrbysco.dmmttba;
 
-import com.mojang.logging.LogUtils;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.tags.ITag;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityMountEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.slf4j.Logger;
 
 @Mod(DMMTTBA.MOD_ID)
 public class DMMTTBA {
 	public static final String MOD_ID = "dmmttba";
-	public static final Logger LOGGER = LogUtils.getLogger();
-	public static final TagKey<EntityType<?>> BOATS = forgeTag("boats");
+
+	public static final ITag.INamedTag<EntityType<?>> STEERABLE = EntityTypeTags.bind(new ResourceLocation(MOD_ID, "steerable").toString());
 
 	public DMMTTBA() {
-		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.addListener(this::onEntityMount);
 	}
 
-	@SubscribeEvent
-	public void onServerStarting(EntityMountEvent event) {
+	private void onEntityMount(EntityMountEvent event) {
 		Entity mountedEntity = event.getEntityBeingMounted();
 		Entity mountingEntity = event.getEntityMounting();
-		if (mountedEntity.getType().is(BOATS) && !mountedEntity.hasControllingPassenger() && mountingEntity instanceof Player player) {
-			mountedEntity.setYRot(player.getYRot());
+		if (mountedEntity.getType().is(STEERABLE) && mountedEntity.getControllingPassenger() == null && mountingEntity instanceof PlayerEntity) {
+			PlayerEntity player = (PlayerEntity) mountingEntity;
+			mountedEntity.yRot = player.yRot;
 		}
-	}
-
-	private static TagKey<EntityType<?>> forgeTag(String name) {
-		return TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge", name));
 	}
 }

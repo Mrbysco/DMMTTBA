@@ -1,41 +1,40 @@
 package com.mrbysco.dmmttba.data;
 
 import com.mrbysco.dmmttba.DMMTTBA;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.EntityTypeTagsProvider;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.data.EntityTypeTagsProvider;
+import net.minecraft.entity.EntityType;
+import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.tags.ITag;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-
-import java.util.concurrent.CompletableFuture;
+import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DMMTTBADatagen {
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
 		DataGenerator generator = event.getGenerator();
-		PackOutput packOutput = generator.getPackOutput();
-		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 		ExistingFileHelper helper = event.getExistingFileHelper();
 
 		if (event.includeServer()) {
-			generator.addProvider(event.includeServer(), new BoatEntityTagProvider(packOutput, lookupProvider, helper));
+			generator.addProvider(new BoatEntityTagProvider(generator, helper));
 		}
 	}
 
 	public static class BoatEntityTagProvider extends EntityTypeTagsProvider {
-		public BoatEntityTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> completableFuture, ExistingFileHelper existingFileHelper) {
-			super(packOutput, completableFuture, DMMTTBA.MOD_ID, existingFileHelper);
+		public BoatEntityTagProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+			super(generator, DMMTTBA.MOD_ID, existingFileHelper);
 		}
 
+		public static final ITag.INamedTag<EntityType<?>> BOATS = EntityTypeTags.bind(new ResourceLocation("forge", "boats").toString());
 
 		@Override
-		protected void addTags(HolderLookup.Provider provider) {
-			this.tag(DMMTTBA.BOATS).add(EntityType.BOAT);
+		protected void addTags() {
+			this.tag(BOATS).add(EntityType.BOAT);
+			this.tag(DMMTTBA.STEERABLE).addTag(BOATS);
 		}
 	}
 }
