@@ -34,6 +34,21 @@ public class DMMTTBADatagen {
 		@Override
 		protected void addTags() {
 			this.tag(BOATS).add(EntityType.BOAT, EntityType.CHEST_BOAT);
+
+			//Add modded boats
+			this.tag(BOATS)
+					.addOptional(new ResourceLocation("thermal", "rubberwood_boat"))
+					.addOptional(new ResourceLocation("thermal", "rubberwood_chest_boat"))
+					.addOptional(new ResourceLocation("ecologics", "boat"))
+					.addOptional(new ResourceLocation("ecologics", "chest_boat"))
+					.addOptional(new ResourceLocation("terraform", "boat"))
+					.addOptional(new ResourceLocation("terraform", "chest_boat"))
+					.addOptional(new ResourceLocation("blueprint", "boat"))
+					.addOptional(new ResourceLocation("blueprint", "chest_boat"))
+					.addOptional(new ResourceLocation("blueprint", "chest_boat"))
+					.addOptional(new ResourceLocation("utilitix", "shulker_boat"))
+			;
+
 			this.tag(Constants.STEERABLE).addTag(BOATS);
 		}
 	}

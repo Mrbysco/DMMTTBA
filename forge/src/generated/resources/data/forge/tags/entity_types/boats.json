@@ -1,6 +1,46 @@
 {
   "values": [
     "minecraft:boat",
-    "minecraft:chest_boat"
+    "minecraft:chest_boat",
+    {
+      "id": "thermal:rubberwood_boat",
+      "required": false
+    },
+    {
+      "id": "thermal:rubberwood_chest_boat",
+      "required": false
+    },
+    {
+      "id": "ecologics:boat",
+      "required": false
+    },
+    {
+      "id": "ecologics:chest_boat",
+      "required": false
+    },
+    {
+      "id": "terraform:boat",
+      "required": false
+    },
+    {
+      "id": "terraform:chest_boat",
+      "required": false
+    },
+    {
+      "id": "blueprint:boat",
+      "required": false
+    },
+    {
+      "id": "blueprint:chest_boat",
+      "required": false
+    },
+    {
+      "id": "blueprint:chest_boat",
+      "required": false
+    },
+    {
+      "id": "utilitix:shulker_boat",
+      "required": false
+    }
   ]
 }
