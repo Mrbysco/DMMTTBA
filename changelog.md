@@ -1,1 +1,1 @@
-* Add some modded forge boats to the boats tag
+* Initial update to 1.20.2
