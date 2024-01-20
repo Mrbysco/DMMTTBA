@@ -1,9 +1,9 @@
 package com.mrbysco.dmmttba;
 
 import net.minecraft.world.entity.Entity;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.EntityMountEvent;
-import net.neoforged.fml.common.Mod;
 
 @Mod(Constants.MOD_ID)
 public class DMMTTBAForge {
