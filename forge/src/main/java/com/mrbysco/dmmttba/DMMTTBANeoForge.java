@@ -6,9 +6,9 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.entity.EntityMountEvent;
 
 @Mod(Constants.MOD_ID)
-public class DMMTTBAForge {
+public class DMMTTBANeoForge {
 
-	public DMMTTBAForge() {
+	public DMMTTBANeoForge() {
 		NeoForge.EVENT_BUS.addListener(this::onEntityMount);
 	}
 

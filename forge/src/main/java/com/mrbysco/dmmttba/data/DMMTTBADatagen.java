@@ -2,21 +2,19 @@ package com.mrbysco.dmmttba.data;
 
 import com.mrbysco.dmmttba.Constants;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.concurrent.CompletableFuture;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class DMMTTBADatagen {
 	@SubscribeEvent
 	public static void gatherData(GatherDataEvent event) {
@@ -35,14 +33,10 @@ public class DMMTTBADatagen {
 			super(packOutput, completableFuture, Constants.MOD_ID, existingFileHelper);
 		}
 
-		public static final TagKey<EntityType<?>> BOATS = TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation("forge", "boats"));
-
 		@Override
 		protected void addTags(HolderLookup.Provider provider) {
-			this.tag(BOATS).add(EntityType.BOAT, EntityType.CHEST_BOAT);
-
 			//Add modded boats
-			this.tag(BOATS)
+			this.tag(Tags.EntityTypes.BOATS)
 					.addOptional(new ResourceLocation("thermal", "rubberwood_boat"))
 					.addOptional(new ResourceLocation("thermal", "rubberwood_chest_boat"))
 					.addOptional(new ResourceLocation("ecologics", "boat"))
@@ -55,7 +49,7 @@ public class DMMTTBADatagen {
 					.addOptional(new ResourceLocation("utilitix", "shulker_boat"))
 			;
 
-			this.tag(Constants.STEERABLE).addTag(BOATS);
+			this.tag(Constants.STEERABLE).addTag(Tags.EntityTypes.BOATS);
 		}
 	}
 }

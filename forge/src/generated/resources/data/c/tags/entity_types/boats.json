@@ -1,7 +1,5 @@
 {
   "values": [
-    "minecraft:boat",
-    "minecraft:chest_boat",
     {
       "id": "thermal:rubberwood_boat",
       "required": false
