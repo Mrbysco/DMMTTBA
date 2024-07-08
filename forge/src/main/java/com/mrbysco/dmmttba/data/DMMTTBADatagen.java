@@ -37,16 +37,16 @@ public class DMMTTBADatagen {
 		protected void addTags(HolderLookup.Provider provider) {
 			//Add modded boats
 			this.tag(Tags.EntityTypes.BOATS)
-					.addOptional(new ResourceLocation("thermal", "rubberwood_boat"))
-					.addOptional(new ResourceLocation("thermal", "rubberwood_chest_boat"))
-					.addOptional(new ResourceLocation("ecologics", "boat"))
-					.addOptional(new ResourceLocation("ecologics", "chest_boat"))
-					.addOptional(new ResourceLocation("terraform", "boat"))
-					.addOptional(new ResourceLocation("terraform", "chest_boat"))
-					.addOptional(new ResourceLocation("blueprint", "boat"))
-					.addOptional(new ResourceLocation("blueprint", "chest_boat"))
-					.addOptional(new ResourceLocation("blueprint", "chest_boat"))
-					.addOptional(new ResourceLocation("utilitix", "shulker_boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("thermal", "rubberwood_boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("thermal", "rubberwood_chest_boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("ecologics", "boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("ecologics", "chest_boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("terraform", "boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("terraform", "chest_boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("blueprint", "boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("blueprint", "chest_boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("blueprint", "chest_boat"))
+					.addOptional(ResourceLocation.fromNamespaceAndPath("utilitix", "shulker_boat"))
 			;
 
 			this.tag(Constants.STEERABLE).addTag(Tags.EntityTypes.BOATS);

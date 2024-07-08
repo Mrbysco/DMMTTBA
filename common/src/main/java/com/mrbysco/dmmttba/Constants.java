@@ -13,5 +13,5 @@ public class Constants {
 	public static final String MOD_NAME = "Don't Make Me Turn This Boat Around";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
-	public static final TagKey<EntityType<?>> STEERABLE = TagKey.create(Registries.ENTITY_TYPE, new ResourceLocation(MOD_ID, "steerable"));
+	public static final TagKey<EntityType<?>> STEERABLE = TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MOD_ID, "steerable"));
 }
