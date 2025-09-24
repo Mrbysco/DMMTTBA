@@ -8,7 +8,7 @@ Tired of boats never facing the right way when you board them in Minecraft? Say 
 
 ## License ##
 * DMMTTBA is licensed under the MIT License
-  - (c) 2024 Mrbysco
+  - (c) 2025 Mrbysco
   - [![License](https://img.shields.io/badge/License-MIT-red.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 ## Downloads ##
