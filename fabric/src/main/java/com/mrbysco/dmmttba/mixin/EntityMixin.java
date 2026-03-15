@@ -11,14 +11,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class EntityMixin {
 
 	@Inject(
-			method = "startRiding(Lnet/minecraft/world/entity/Entity;Z)Z",
+			method = "startRiding(Lnet/minecraft/world/entity/Entity;ZZ)Z",
 			at = @At(
 					value = "INVOKE",
 					target = "Lnet/minecraft/world/entity/Entity;isPassenger()Z"
-			),
-			cancellable = true
+			)
 	)
-	public void dmmttba$onStartRiding(Entity entity, boolean bl, CallbackInfoReturnable<Boolean> cir) {
+	public void dmmttba$onStartRiding(Entity entity, boolean bl, boolean bl2, CallbackInfoReturnable<Boolean> cir) {
 		CommonClass.rotateSteerable(entity, (Entity) (Object) this);
 	}
 }

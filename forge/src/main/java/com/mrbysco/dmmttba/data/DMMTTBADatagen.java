@@ -5,8 +5,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.EntityTypeTags;
+import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.Tags;
@@ -33,17 +32,17 @@ public class DMMTTBADatagen {
 		@Override
 		protected void addTags(HolderLookup.Provider provider) {
 			//Add modded boats
-			var tagEntries = this.getOrCreateRawBuilder(Tags.EntityTypes.BOATS)
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("thermal", "rubberwood_boat"))
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("thermal", "rubberwood_chest_boat"))
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("ecologics", "boat"))
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("ecologics", "chest_boat"))
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("terraform", "boat"))
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("terraform", "chest_boat"))
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("blueprint", "boat"))
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("blueprint", "chest_boat"))
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("blueprint", "chest_boat"))
-					.addOptionalElement(ResourceLocation.fromNamespaceAndPath("utilitix", "shulker_boat")).build()
+			this.getOrCreateRawBuilder(Tags.EntityTypes.BOATS)
+					.addOptionalElement(Identifier.fromNamespaceAndPath("thermal", "rubberwood_boat"))
+					.addOptionalElement(Identifier.fromNamespaceAndPath("thermal", "rubberwood_chest_boat"))
+					.addOptionalElement(Identifier.fromNamespaceAndPath("ecologics", "boat"))
+					.addOptionalElement(Identifier.fromNamespaceAndPath("ecologics", "chest_boat"))
+					.addOptionalElement(Identifier.fromNamespaceAndPath("terraform", "boat"))
+					.addOptionalElement(Identifier.fromNamespaceAndPath("terraform", "chest_boat"))
+					.addOptionalElement(Identifier.fromNamespaceAndPath("blueprint", "boat"))
+					.addOptionalElement(Identifier.fromNamespaceAndPath("blueprint", "chest_boat"))
+					.addOptionalElement(Identifier.fromNamespaceAndPath("blueprint", "chest_boat"))
+					.addOptionalElement(Identifier.fromNamespaceAndPath("utilitix", "shulker_boat")).build()
 			;
 
 			this.tag(Constants.STEERABLE).addTag(Tags.EntityTypes.BOATS);

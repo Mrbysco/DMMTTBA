@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id "net.neoforged.moddev" version "2.0.107"
+    id "net.neoforged.moddev" version "2.0.140"
     id 'net.darkhax.curseforgegradle'
     id 'com.modrinth.minotaur'
 }
@@ -21,11 +21,10 @@ neoForge {
     }
 
     // Automatically enable neoforge AccessTransformers if the file exists
-    def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
+    def at = project(":forge").file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
-        accessTransformers.add(at.absolutePath)
+        accessTransformers.from(at.absolutePath)
     }
-    addModdingDependenciesTo(sourceSets["test"])
 
     def commonResources = project(':common').file("src/main/resources")
     runs {
@@ -63,7 +62,6 @@ neoForge {
     mods {
         "${mod_id}" {
             sourceSet sourceSets.main
-            sourceSet sourceSets.test
         }
     }
 }
@@ -122,13 +120,10 @@ if (System.getenv().CURSEFORGE_KEY) {
         mainFile.addGameVersion "NeoForge"
         mainFile.addGameVersion "${minecraft_version}"
         mainFile.addGameVersion "Java 21"
-        mainFile.addEnvironment('Client')
+        mainFile.addGameVersion('Server', 'Client')
 
         mainFile.changelog = file("$project.rootDir/changelog.md")
         mainFile.changelogType = 'markdown'
-
-//        mainFile.addRequirement()
-//        mainFile.addOptional()
     }
 }
 
@@ -143,9 +138,5 @@ if (System.getenv().MODRINTH_KEY) {
         changelog = file("$project.rootDir/changelog.md").text
         gameVersions = ["${minecraft_version}"]
         loaders = ["neoforge"]
-
-        dependencies {
-
-        }
     }
 }

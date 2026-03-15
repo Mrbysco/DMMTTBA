@@ -2,7 +2,7 @@ package com.mrbysco.dmmttba;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.vehicle.Boat;
+import net.minecraft.world.entity.vehicle.boat.Boat;
 
 public class CommonClass {
 
@@ -13,7 +13,8 @@ public class CommonClass {
 	 * @param mountingEntity The entity that is mounting the other entity
 	 */
 	public static void rotateSteerable(Entity mountedEntity, Entity mountingEntity) {
-		if ((mountedEntity.getType().is(Constants.STEERABLE) || mountedEntity instanceof Boat) && !mountedEntity.hasControllingPassenger() && mountingEntity instanceof Player player) {
+		if ((mountedEntity.getType().is(Constants.STEERABLE) || mountedEntity instanceof Boat) &&
+				!mountedEntity.hasControllingPassenger() && mountingEntity instanceof Player player) {
 			mountedEntity.setYRot(player.getYRot());
 		}
 	}
